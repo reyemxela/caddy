@@ -1,4 +1,4 @@
-FROM caddy:2-builder AS builder
+FROM --platform=$BUILDPLATFORM caddy:2-builder AS builder
 
 ARG TARGETOS TARGETARCH
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH xcaddy build \
