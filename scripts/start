@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# process substitution seems to be the best way to pipe in the config while stil 'exec'ing to keep caddy as pid 1
+exec caddy run --config - < <(parsecfg)
