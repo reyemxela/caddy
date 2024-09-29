@@ -7,7 +7,9 @@ RUN GOOS=$TARGETOS GOARCH=$TARGETARCH xcaddy build \
 
 FROM caddy:2
 
-RUN apk add --no-cache jq
+RUN apk add --no-cache \
+    jq \
+    bind-tools
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
