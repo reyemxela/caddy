@@ -1,9 +1,11 @@
 FROM --platform=$BUILDPLATFORM caddy:2-builder AS builder
 
 ARG TARGETOS TARGETARCH
-RUN GOOS=$TARGETOS GOARCH=$TARGETARCH xcaddy build \
-    --with github.com/caddy-dns/cloudflare \
-		--with github.com/mholt/caddy-l4
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH \
+    xcaddy build \
+        --with github.com/caddy-dns/cloudflare \
+        --with github.com/greenpau/caddy-security
+	    # --with github.com/mholt/caddy-l4 \
 
 FROM caddy:2
 
