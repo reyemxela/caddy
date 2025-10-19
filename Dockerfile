@@ -6,7 +6,6 @@ RUN GOOS=$TARGETOS GOARCH=$TARGETARCH \
         --with github.com/caddy-dns/cloudflare \
         --with github.com/greenpau/caddy-security \
         --with github.com/caddyserver/replace-response
-	    # --with github.com/mholt/caddy-l4 \
 
 FROM caddy:2
 
@@ -16,8 +15,4 @@ RUN apk add --no-cache \
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
-COPY --chmod=755 scripts/parsecfg /usr/bin/
 COPY --chmod=755 scripts/reload /usr/bin/
-COPY --chmod=755 scripts/start /usr/bin/
-
-CMD start

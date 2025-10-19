@@ -1,3 +1,5 @@
 #!/bin/sh
 
-parsecfg |caddy reload --config -
+caddy fmt -wc /etc/caddy/Caddyfile || exit 1
+caddy validate -c /etc/caddy/Caddyfile || exit 1
+caddy reload -c /etc/caddy/Caddyfile

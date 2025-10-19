@@ -3,7 +3,7 @@ name: Build and publish image
 on:
   push:
   schedule:
-    - cron: "0 2 * * 1"
+    - cron: "0 2 * * 1" # 2am on Monday
   workflow_dispatch:
 
 env:
